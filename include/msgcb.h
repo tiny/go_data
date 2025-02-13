@@ -22,8 +22,6 @@ namespace go {
 //#define  CBMUTEX   FastGate
 #define  CBMUTEX   MutexGate
 
-void cbMasterSwitch( bool ison ) ;
-
 //------------------------------------------------------------------------------
 /*!
   @class MsgCB

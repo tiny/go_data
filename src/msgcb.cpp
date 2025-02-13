@@ -27,13 +27,6 @@ int32_t     Callback :: _useageMeter = 0 ;
 int32_t     Callback :: _nActive = 0 ;
 int32_t     Callback :: _version = gotools_core_version() ;
 
-// used to turn all callbacks on or off
-bool     _cbMainSwitch = true ;
-void cbMasterSwitch( bool ison )
-{
-  _cbMainSwitch = ison ;
-} // :: cbMasterSwitch
-
 //------------------------------------------------------------------------
 void MsgCB :: cb_clear() 
 {
@@ -205,12 +198,11 @@ int32_t MsgCB :: invoke ()
   MUTEXSCOPE  sc( _cbGate ) ;
   int32_t         i = 0, rc = 0 ;
 
-//  if (_cbMainSwitch)
-  {
     for (i = 0; i < _cbWatchers; i++)
     {
       try
       {
+        Callback::_nInvokes++ ;
         if ((rc = _cbArray[i]->invoke()) != 0)
           break ;
       }
@@ -220,7 +212,6 @@ int32_t MsgCB :: invoke ()
 //        _cbArray[i]->comatose() ; // disable this callback in the future
       }
     } 
-  }
 
   _needToInvoke = false ;
   return rc ;
@@ -240,12 +231,11 @@ int32_t MsgCB :: invoke ( const ArgList &args )
   MUTEXSCOPE  sc( _cbGate ) ;
   int32_t         i = 0, rc = 0 ;
 
-//  if (_cbMainSwitch)
-  {
     for (i = 0; i < _cbWatchers; i++)
     {
       try
       {
+        Callback::_nInvokes++ ;
         if ((rc = _cbArray[i]->invoke(args)) != 0)
           break ;
       }
@@ -255,7 +245,6 @@ int32_t MsgCB :: invoke ( const ArgList &args )
 //        _cbArray[i]->comatose() ; // disable this callback in the future
       }
     } 
-  }
 
   _needToInvoke = false ;
   return rc ;

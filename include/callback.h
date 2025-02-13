@@ -59,6 +59,7 @@ class Callback
     void          *srcObj() const { return _srcObj ; }
     virtual void  *destObj() const { return nullptr ; }
     inline bool    inComa() const { return _inComa ; }
+    static uint32_t   _nInvokes ; // invoke counter
     static int32_t    _useageMeter ;
     static int32_t    _nActive ;
     static int32_t    _version ; // library version id
