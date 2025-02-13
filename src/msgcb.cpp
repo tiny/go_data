@@ -28,6 +28,7 @@ namespace go {
 
 //------------------------------------------------------------------------
 bool        _cbSingleThreadSwitch = false ;
+uint32_t    Callback :: _nInvokes = 0 ;
 int32_t     Callback :: _useageMeter = 0 ;
 int32_t     Callback :: _nActive = 0 ;
 int32_t     Callback :: _version = gotools_core_version() ;
