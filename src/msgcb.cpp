@@ -22,8 +22,7 @@
 namespace go {
 
 //------------------------------------------------------------------------
-bool     _cbSingleThreadSwitch = false ;
-uint32_t    _cbInvokeCounter = 0 ;
+bool        _cbSingleThreadSwitch = false ;
 int32_t     Callback :: _useageMeter = 0 ;
 int32_t     Callback :: _nActive = 0 ;
 int32_t     Callback :: _version = gotools_core_version() ;
@@ -223,7 +222,6 @@ int32_t MsgCB :: invoke ()
     } 
   }
 
-  _cbInvokeCounter += i ; // increment callback counter 
   _needToInvoke = false ;
   return rc ;
 } // MsgCB :: invoke
@@ -259,7 +257,6 @@ int32_t MsgCB :: invoke ( const ArgList &args )
     } 
   }
 
-  _cbInvokeCounter += i ; // increment callback counter 
   _needToInvoke = false ;
   return rc ;
 } // MsgCB :: invoke
