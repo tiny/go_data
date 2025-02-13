@@ -30,7 +30,6 @@ if (NOT go_data_POPULATED)
 endif() 
 FetchContent_MakeAvailable(go_data)
 
-# Include directories
 target_include_directories(libgo_data INTERFACE ${go_data_SOURCE_DIR}/include)
 
 add_executable(${PROJECT_NAME} 
@@ -40,7 +39,7 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} PRIVATE libgo_data)
 </pre></code>
 
-how to utilize in your code
+# how to utilize in your code
 <code><pre>#include <gonumeric.h>
 #include <cb_lambda.h>
 
