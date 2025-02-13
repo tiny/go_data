@@ -19,6 +19,11 @@
 
 #define  MUTEXSCOPE     GateScope<CBMUTEX>
 
+#ifdef LINUX
+#  define max(a,b)   std::max(a,b)
+#  define min(a,b)   std::min(a,b)
+#endif
+
 namespace go {
 
 //------------------------------------------------------------------------

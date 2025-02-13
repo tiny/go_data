@@ -158,7 +158,7 @@ int16_t PointInTime :: local_tz( int16_t &dst )
   struct timeval  tv ;
   struct timezone tz ;
 
-  std::gettimeofday(&tv,&tz);
+  gettimeofday(&tv,&tz);
   dst = tz.tz_minuteswest;
   return tz.tz_minuteswest;
 #else

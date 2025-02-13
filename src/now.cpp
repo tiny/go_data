@@ -18,6 +18,7 @@ namespace go {
 
 uint64_t  __timeGetTime = 0 ;  // microseconds
 
+#ifdef WIN32
 #include <windows.h>
 uint64_t getSystemUptime() {
 //  ULONGLONG mseconds = GetTickCount64();
@@ -25,6 +26,7 @@ uint64_t getSystemUptime() {
 //  return std::chrono::microseconds(useconds);
   return GetTickCount64() * 1000;
 } // :: getSystemUptime
+#endif
 
 uint64_t now() 
 {
