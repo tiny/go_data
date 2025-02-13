@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(go_data)
+project(libgo_data)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -59,4 +59,5 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES_godata})
 
 target_compile_definitions(${PROJECT_NAME} PUBLIC LINUX)
 target_compile_definitions(${PROJECT_NAME} PUBLIC UNIX)
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 
