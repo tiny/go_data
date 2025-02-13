@@ -39,7 +39,7 @@ void MutexGate :: create()
   attributes.nLength = sizeof( SECURITY_ATTRIBUTES );
   if( 0 == _handle ) 
   {
-    _handle = ::CreateMutex( &attributes, FALSE, (LPCWSTR)_name ); 
+    _handle = ::CreateMutex( &attributes, FALSE, (LPCSTR)_name ); 
   }
 #endif
   nCreated++ ;

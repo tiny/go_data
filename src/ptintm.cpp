@@ -18,6 +18,8 @@
 #  ifndef _WINSOCK2API_
 #    include <winsock2.h>
 #  endif
+#elif defined(WIN32)
+#  include <winsock2.h>
 #endif
 
 namespace go {

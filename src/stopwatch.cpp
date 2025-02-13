@@ -12,6 +12,8 @@
 */
 #if defined(_WINDOWS) && !defined(_AFXDLL)
 #  include <windows.h>
+#elif defined(WIN32)
+#  include <windows.h>
 #elif defined(UNIX)
 #  include <sys/time.h>
 #endif

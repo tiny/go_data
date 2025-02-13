@@ -16,6 +16,7 @@
 #  include <stdio.h>
 #  include <stdlib.h> // for abs
 #  include <string.h> // for memcpy
+#  include <time.h>
 #else
 #  include <time.h>
 #  include <sys/time.h>
@@ -151,22 +152,21 @@ void timezone_init()
   }
 } // :: timezone_init
 
-//------------------------------------------------------------------------
-extern bool     _cbMainSwitch ;
-
 int16_t PointInTime :: local_tz( int16_t &dst ) 
 {
+#ifdef LINUX
   struct timeval  tv ;
   struct timezone tz ;
 
-  gettimeofday(&tv,&tz);
+  std::gettimeofday(&tv,&tz);
   dst = tz.tz_minuteswest;
   return tz.tz_minuteswest;
-
-//  struct timeb   pt ;
-//  ::ftime( &pt ) ;
-//  dst = pt.dstflag ;
-//  return pt.timezone ;
+#else
+  struct timeb   pt ;
+  ::ftime( &pt ) ;
+  dst = pt.dstflag ;
+  return pt.timezone ;
+#endif
 } // PointInTime :: local_tz 
 
 PointInTime :: PointInTime( time_t tm, int16_t ms, int16_t tz, int16_t dstflag )
@@ -254,10 +254,6 @@ void PointInTime :: getCurrent()
 #else
   ::ftime( &_pt ) ;
   _pt.time = _pt.time - _pt.timezone*60 + (_pt.dstflag * 60*60) ;
-#endif
-#ifndef NOSECURITY
-//  static PointInTime  trip( "EST", 3, 1, 2031 ) ;
-//  _cbMainSwitch = (_pt.time < trip._pt.time) ;
 #endif
 } // PointInTime :: getCurrent
 

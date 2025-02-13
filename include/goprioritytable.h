@@ -46,6 +46,7 @@ class CBNode
     MsgCB    &cb() { return _cb ; }
 } ; // class CBNode
 
+#ifdef DONT_USE
 // sort by display level
 struct CBNodeSort : std::binary_function< CBNode *, CBNode *, bool >
 {
@@ -58,6 +59,18 @@ struct CBNodeSort : std::binary_function< CBNode *, CBNode *, bool >
 
 typedef GOSet< CBNode*, CBNodeSort >              CBNodeSet ;
 typedef GOSet< CBNode*, CBNodeSort >::iterator    CBNodeSet_iter ;
+#else
+struct CompareCBNode {
+  bool operator()(const CBNode* lhs, const CBNode* rhs) const
+  {
+    if (lhs == nullptr) return true;
+    if (rhs == nullptr) return false;
+    return (lhs->lvl() < rhs->lvl());
+  }
+};
+typedef GOSet< CBNode*, CompareCBNode >              CBNodeSet;
+typedef GOSet< CBNode*, CompareCBNode >::iterator    CBNodeSet_iter;
+#endif
 
 /*!
   @class GOPriorityTable

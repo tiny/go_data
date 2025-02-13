@@ -18,7 +18,7 @@
    // Code specific to C++11 or later
 //#  define SEM_T  std::condition_variable
 #else
-    #error "This code requires at least C++11"
+//    #error "This code requires at least C++11"
 #endif
 
 namespace go {

@@ -36,7 +36,7 @@ ByteBuffer :: ByteBuffer( int32_t init_sz, int32_t inc_sz, int32_t max_sz )
   _buffer     = (init_sz <= 0) ? nullptr : new byte[ init_sz ] ;
   _buff_maxsz = max_sz ;
   _buff_incsz = inc_sz ;
-  _buff_sz    = std::max( 0, init_sz ) ;
+  _buff_sz    = max( 0, init_sz ) ;
   _buff_used  = 0L ;
 } // ByteBuffer [constructor]
 
@@ -91,7 +91,7 @@ int16_t ByteBuffer :: shift( int32_t nbytes )
 
   MutexScope  sc( _gate ) ;
 
-  nbytes = std::min( nbytes, _buff_used ) ;
+  nbytes = min( nbytes, _buff_used ) ;
   memcpy( _buffer, &_buffer[ nbytes ], (_buff_used - nbytes) ) ;
   _buff_used -= nbytes ;
   return 0 ;

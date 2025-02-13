@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{3ACC572F-60F9-4A2D-AE23-116BD008D07E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>../include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\arglist.cpp" />
+    <ClCompile Include="..\src\bytebuffer.cpp" />
+    <ClCompile Include="..\src\calccrc.cpp" />
+    <ClCompile Include="..\src\crc32tab.cpp" />
+    <ClCompile Include="..\src\dar.cpp" />
+    <ClCompile Include="..\src\db_blob.cpp" />
+    <ClCompile Include="..\src\dims.cpp" />
+    <ClCompile Include="..\src\fastgate.cpp" />
+    <ClCompile Include="..\src\goeventtree.cpp" />
+    <ClCompile Include="..\src\golinestats.cpp" />
+    <ClCompile Include="..\src\gonumeric.cpp" />
+    <ClCompile Include="..\src\goobject.cpp" />
+    <ClCompile Include="..\src\goprioritytable.cpp" />
+    <ClCompile Include="..\src\gosampler.cpp" />
+    <ClCompile Include="..\src\gostatemachine.cpp" />
+    <ClCompile Include="..\src\gostatenode.cpp" />
+    <ClCompile Include="..\src\gostopwatch.cpp" />
+    <ClCompile Include="..\src\gostring.cpp" />
+    <ClCompile Include="..\src\gotimer.cpp" />
+    <ClCompile Include="..\src\gotools_core_version.cpp" />
+    <ClCompile Include="..\src\inifield.cpp" />
+    <ClCompile Include="..\src\inifiledb.cpp" />
+    <ClCompile Include="..\src\inisection.cpp" />
+    <ClCompile Include="..\src\msgcb.cpp" />
+    <ClCompile Include="..\src\mutexgate.cpp" />
+    <ClCompile Include="..\src\now.cpp" />
+    <ClCompile Include="..\src\pbvparameter.cpp" />
+    <ClCompile Include="..\src\pointintime.cpp" />
+    <ClCompile Include="..\src\ptintm.cpp" />
+    <ClCompile Include="..\src\report.cpp" />
+    <ClCompile Include="..\src\report_monitor.cpp" />
+    <ClCompile Include="..\src\report_monitor_file.cpp" />
+    <ClCompile Include="..\src\report_msg.cpp" />
+    <ClCompile Include="..\src\si_sleep.cpp" />
+    <ClCompile Include="..\src\stopwatch.cpp" />
+    <ClCompile Include="..\src\stricmp.cpp" />
+    <ClCompile Include="..\src\threads.cpp" />
+    <ClCompile Include="..\src\thread_core.cpp" />
+    <ClCompile Include="..\src\timedevent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\arglist.h" />
+    <ClInclude Include="..\include\bytebuffer.h" />
+    <ClInclude Include="..\include\calccrc.h" />
+    <ClInclude Include="..\include\callback.h" />
+    <ClInclude Include="..\include\cb_lambda.h" />
+    <ClInclude Include="..\include\cb_statetimeout.h" />
+    <ClInclude Include="..\include\crc32tab.h" />
+    <ClInclude Include="..\include\dar.h" />
+    <ClInclude Include="..\include\db_blob.h" />
+    <ClInclude Include="..\include\dims.h" />
+    <ClInclude Include="..\include\enum.h" />
+    <ClInclude Include="..\include\fastgate.h" />
+    <ClInclude Include="..\include\goeventtree.h" />
+    <ClInclude Include="..\include\golinestats.h" />
+    <ClInclude Include="..\include\gomap.h" />
+    <ClInclude Include="..\include\gomax.h" />
+    <ClInclude Include="..\include\gomean.h" />
+    <ClInclude Include="..\include\gomin.h" />
+    <ClInclude Include="..\include\gonumeric.h" />
+    <ClInclude Include="..\include\goobject.h" />
+    <ClInclude Include="..\include\goprioritytable.h" />
+    <ClInclude Include="..\include\gosampler.h" />
+    <ClInclude Include="..\include\goset.h" />
+    <ClInclude Include="..\include\gostatemachine.h" />
+    <ClInclude Include="..\include\gostatenode.h" />
+    <ClInclude Include="..\include\gostatistics.h" />
+    <ClInclude Include="..\include\gostddev.h" />
+    <ClInclude Include="..\include\gostopwatch.h" />
+    <ClInclude Include="..\include\gostring.h" />
+    <ClInclude Include="..\include\gosum.h" />
+    <ClInclude Include="..\include\gotimer.h" />
+    <ClInclude Include="..\include\gotools_core_version.h" />
+    <ClInclude Include="..\include\govariance.h" />
+    <ClInclude Include="..\include\govector.h" />
+    <ClInclude Include="..\include\go_semaphore.h" />
+    <ClInclude Include="..\include\grdeque.h" />
+    <ClInclude Include="..\include\grset.h" />
+    <ClInclude Include="..\include\gtokenmap.h" />
+    <ClInclude Include="..\include\inifield.h" />
+    <ClInclude Include="..\include\inifiledb.h" />
+    <ClInclude Include="..\include\inisection.h" />
+    <ClInclude Include="..\include\keydefs.h" />
+    <ClInclude Include="..\include\msgcb.h" />
+    <ClInclude Include="..\include\mutexgate.h" />
+    <ClInclude Include="..\include\mutexscope.h" />
+    <ClInclude Include="..\include\now.h" />
+    <ClInclude Include="..\include\pbvparameter.h" />
+    <ClInclude Include="..\include\pointintime.h" />
+    <ClInclude Include="..\include\ptintm.h" />
+    <ClInclude Include="..\include\report.h" />
+    <ClInclude Include="..\include\report_flags.h" />
+    <ClInclude Include="..\include\report_monitor.h" />
+    <ClInclude Include="..\include\report_monitor_file.h" />
+    <ClInclude Include="..\include\report_msg.h" />
+    <ClInclude Include="..\include\si_sleep.h" />
+    <ClInclude Include="..\include\socket_interface.h" />
+    <ClInclude Include="..\include\stopwatch.h" />
+    <ClInclude Include="..\include\stricmp.h" />
+    <ClInclude Include="..\include\threads.h" />
+    <ClInclude Include="..\include\thread_core.h" />
+    <ClInclude Include="..\include\timedevent.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

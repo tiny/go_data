@@ -19,6 +19,8 @@
 #ifndef STRICMP_H
 #define STRICMP_H
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -5,35 +5,57 @@
   © 2024 Robert McInnis <r_mcinnis@solidice.com>
 */
 #include <stdlib.h>
-#include <sys/time.h>
 #include <cstring>
 #include <time.h>
 #include "now.h"
+#include <chrono>
+
+#if defined(LINUX)
+#  include <sys/time.h>
+#endif
 
 namespace go {
 
-uint64_t  __timeGetTime = 0 ;  
+uint64_t  __timeGetTime = 0 ;  // microseconds
+
+#include <windows.h>
+uint64_t getSystemUptime() {
+//  ULONGLONG mseconds = GetTickCount64();
+//  ULONGLONG useconds = mseconds * 1000;
+//  return std::chrono::microseconds(useconds);
+  return GetTickCount64() * 1000;
+} // :: getSystemUptime
 
 uint64_t now() 
 {
+#ifdef LINUX
   struct timeval tv;
   gettimeofday(&tv, NULL);
   return tv.tv_sec * 1000000 + tv.tv_usec;
+#else
+  return getSystemUptime();
+#endif
 } // :: now
 
 uint32_t now_timet() 
 {
+#ifdef LINUX
   struct timeval tv;
   gettimeofday(&tv, NULL);
   return tv.tv_sec ;
+#else
+  return now() / 1000;
+#endif
 } // :: now_timet
 
+#ifdef LINUX
 uint32_t timeGetTime()
 {
   uint64_t t1 = now() ;
   if (__timeGetTime == 0)  __timeGetTime = t1 ;
   return (t1 - __timeGetTime) / 1000 ;
 } // :: timeGetTime
+#endif
 
 uint64_t timeGetTime64()
 {

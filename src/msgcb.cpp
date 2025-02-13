@@ -77,7 +77,7 @@ Callback *MsgCB :: cb_pushback( Callback *c )
     return nullptr ;
 
   if ((_cbWatchers+1) >= _cbArraySz)
-    cb_grow( std::max( 3, _cbWatchers/4 ) ) ;
+    cb_grow( max( 3, _cbWatchers/4 ) ) ;
 
   MUTEXSCOPE  sc( _cbGate ) ;
   _cbArray[ _cbWatchers++ ] = c ;

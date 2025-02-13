@@ -17,7 +17,9 @@ namespace go {
 //
   uint64_t     now() ;
   uint32_t     now_timet() ;
+#ifdef LINUX
   uint32_t     timeGetTime() ; // milliseconds since first call
+#endif
   uint64_t     timeGetTime64() ; // microseconds since first call
 
   std::string  time2str_sec ( uint32_t t ) ; // yyyy-ddd-hh:mm:ss
