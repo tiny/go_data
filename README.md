@@ -4,7 +4,7 @@ guarded observable data components
 tools originally created for tax software developed in 1992, go-data is a small library that has supported the observable pattern via loose coupling over the decades
 
 # how to add to your project
-<code><pre>
+
 ```
 cmake_minimum_required(VERSION 3.10)
 project(test_observables)
@@ -40,9 +40,9 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} PRIVATE libgo_data)
 ```
-</pre></code>
+
 # how to utilize in your code
-<code><pre>
+
 ```
 #include <gonumeric.h>
 #include <cb_lambda.h>
@@ -74,4 +74,3 @@ int main(int argc, char *argv[])
     return 0 ;
 } // :: main
 ```
-</pre></code>
