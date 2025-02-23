@@ -42,6 +42,7 @@ class GOObject
     virtual bool   interpret( const char * /* buf */ ) { return false ; }
     inline bool    is_watched() const { return (_valueCB.nWatchers() > 0) ; }
     virtual bool   represent( int32_t /* max */, char * /* buf */ ) { return false ; }
+    virtual Callback *operator<< ( Callback *cb ) { return _valueCB.install( cb ) ; }
 
     // access methods
     MsgCB         &valueCB() { return _valueCB ; }
