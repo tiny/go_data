@@ -54,7 +54,6 @@ class LambdaPokeCB : public Callback
     virtual void  *destObj() const { return nullptr ; }
 } ; // class LambdaPokeCB
 
-#define Lambda(a)    go::LambdaPokeCB(a)  
-#define poke(a)      go::LambdaPokeCB(a)  
+#define poke(a)      (new go::LambdaPokeCB(a))
 
 } // namespace go
